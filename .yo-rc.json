@@ -42,6 +42,7 @@
     "creationTimestamp": 1613221472501,
     "jwtSecretKey": "MGNlNjc1ZTYyNjFlYjRlZmZiYjE2NWFhZDI1MDQ2ODM0MzQwNzkyZjI1NmZkYTJhOWZjNmNiMTExYzVkYmViMTkwNDYzMTIxYTRhNzA2ODA3OThhMTlkMjU3NTM5MzlhNmU5Mzc1MjI1ZjU3YzEyOWVmYjA3MDM2OTJiNDAyOTM=",
     "lastLiquibaseTimestamp": 1613221832000,
-    "entities": ["Invoice", "Customer", "Shipment", "Product", "ProductOrder", "OrderItem"]
+    "entities": ["Invoice", "Customer", "Shipment", "Product", "ProductOrder", "OrderItem"],
+    "appFolder": "crm"
   }
 }
