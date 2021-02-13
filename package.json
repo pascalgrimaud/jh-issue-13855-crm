@@ -22,6 +22,7 @@
     "docker:db:up": "docker-compose -f src/main/docker/mysql.yml up -d",
     "docker:jhipster-registry:down": "docker-compose -f src/main/docker/jhipster-registry.yml down -v --remove-orphans",
     "docker:jhipster-registry:up": "docker-compose -f src/main/docker/jhipster-registry.yml up -d",
+    "docker:others:await": "echo \"Waiting for jhipster-registry to start\" && wait-on http-get://localhost:8761/management/health && echo \"jhipster-registry started\"",
     "docker:others:down": "npm run docker:jhipster-registry:down",
     "predocker:others:up": "",
     "docker:others:up": "npm run docker:jhipster-registry:up",
@@ -34,6 +35,7 @@
     "java:war": "./mvnw -ntp verify -DskipTests --batch-mode -Pwar",
     "java:war:dev": "npm run java:war -- -Pdev,webapp",
     "java:war:prod": "npm run java:war -- -Pprod",
+    "prettier:check": "prettier --check \"{,src/**/}*.{md,json,yml,html,java}\"",
     "prettier:format": "prettier --write \"{,src/**/}*.{md,json,yml,html,java}\""
   },
   "config": {
@@ -42,8 +44,8 @@
   },
   "devDependencies": {
     "generator-jhipster": "7.0.0-beta.1",
-    "husky": "4.3.7",
-    "lint-staged": "10.5.3",
+    "husky": "5.0.9",
+    "lint-staged": "10.5.4",
     "prettier": "2.2.1",
     "prettier-plugin-java": "1.0.1"
   },
