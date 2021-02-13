@@ -48,11 +48,8 @@ public class CustomClaimConverter implements Converter<Map<String, Object>, Map<
             String token = bearerTokenResolver.resolve(
                 ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest()
             );
-            HttpHeaders headers = new HttpHeaders() {
-                {
-                    set("Authorization", "Bearer " + token);
-                }
-            };
+            HttpHeaders headers = new HttpHeaders();
+            headers.set("Authorization", buildBearer(token));
 
             // Retrieve user infos from OAuth provider if not already loaded
             ObjectNode user = users.computeIfAbsent(
@@ -81,5 +78,9 @@ public class CustomClaimConverter implements Converter<Map<String, Object>, Map<
             }
         }
         return convertedClaims;
+    }
+
+    private String buildBearer(String token) {
+        return "Bearer " + token;
     }
 }
